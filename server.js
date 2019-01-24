@@ -6,18 +6,18 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
   // res.send('<h1>Hello There!</h1>');
-  res.send({
-    text: 'Hello There!',
-    name: 'Harsha',
-    likes: [
-      'Playing games',
-      'Football'
-    ]
+  res.render('home.hbs', {
+    pageTitle: 'Home Page',
+    welcomeMessage: 'Welcome to My App',
+    currentYear: new Date().getFullYear()
   });
 });
 
 app.get('/about', (req, res) => {
-  res.send('<h1>About Page</h1> <br> <p> The about section for the app. </p>');
+  res.render('about.hbs', {
+    pageTitle: 'About Page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 app.get('/bad', (req, res) => {
